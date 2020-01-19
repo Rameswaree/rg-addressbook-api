@@ -8,7 +8,8 @@ Steps to run the application:
 1. Clone the git repository or download the extract zip file.
 2. Open the project using IntelliJ Idea or any other IDE that you use.
 3. Run the application from the IDE.
-4. Open Google Chrome browser.
-5. Type "http://localhost:8080/address/". This will give you the list of customers with their addresses.
-6. Pick any of the customer's last name and now type "http://localhost:8080/address/lastName", where lastName is the name that you have chosen. This will give the list of customers (or customer if there is only one person) with that surname.
-7. Give the last name to be something different from the list. It will throw the exception "com.moo.addressbook.custom.CustomerNotFoundException: Unable to find address for the surname".
+4. To run the application from command terminal, go to the path where the project is present and type 'mvn clean install'. After this, type 'java -jar target\rg-addressbook-api-1.2.0.jar' to run the application in Windows. (For Mac users, please type 'java -jar target/rg-addressbook-api-1.2.0.jar').
+5. Open the browser of your choice.
+6. Type "http://localhost:8080/address/". This will give you the list of customers with their addresses.
+7. Pick any of the customer's last name and now type "http://localhost:8080/address/lastName", where lastName is the name that you have chosen. This will give the list of customers (or customer if there is only one person) with that surname.
+8. Give the last name to be something different from the list. It will throw the exception "com.moo.addressbook.custom.CustomerNotFoundException: Unable to find address for the surname".
