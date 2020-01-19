@@ -1,5 +1,9 @@
 package com.moo.addressbook.model;
 
+/**
+ * Model class of Customer
+ * @author rameswaree@gmail.com
+ */
 public class Customer {
 
     long customerId;

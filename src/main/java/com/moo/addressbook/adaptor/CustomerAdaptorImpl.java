@@ -6,9 +6,18 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Adaptor class to create customer list
+ * @author rameswaree@gmail.com
+ * Copyright 2020-2021
+ */
 @Component
 public class CustomerAdaptorImpl implements CustomerAdaptor {
 
+    /**
+     *
+     * @return list of customers with their addresses
+     */
     @Override
     public List<Customer> createCustomerAddressList() {
         List<Customer> customerList = new ArrayList<>();

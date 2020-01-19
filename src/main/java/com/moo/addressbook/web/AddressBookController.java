@@ -3,8 +3,6 @@ package com.moo.addressbook.web;
 import com.moo.addressbook.custom.CustomerNotFoundException;
 import com.moo.addressbook.model.Customer;
 import com.moo.addressbook.service.AddressBookService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,13 +10,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Controller class
+ * @author rameswaree@gmail.com
+ * Copyright 2020-2021
+ */
 @RestController
 public class AddressBookController {
 
-    static Logger logger = LoggerFactory.getLogger(AddressBookController.class);
     @Autowired
     AddressBookService addressBookService;
 
+    /**
+     *
+     * @param lastName find customers by last name
+     * @return list of customers having the last name passed as parameter
+     * @throws CustomerNotFoundException when the last name is not available in the list
+     */
     @GetMapping("/address/{lastName}")
     public List<Customer> getCustomersByLastName(@PathVariable String lastName) throws CustomerNotFoundException {
 
@@ -30,6 +38,10 @@ public class AddressBookController {
         return customerList;
     }
 
+    /**
+     *
+     * @return list of all customers
+     */
     @GetMapping("/address")
     public List<Customer> getAllCustomers(){
 
