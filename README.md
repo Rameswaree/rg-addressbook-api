@@ -14,4 +14,4 @@ Steps to run the application:
 7. Pick any of the customer's last name and now type "http://localhost:8080/address/lastName", where lastName is the name that you have chosen. This will give the list of customers (or customer if there is only one person) with that surname.
 8. Give the last name to be something different from the list. It will throw the exception "com.moo.addressbook.custom.CustomerNotFoundException: Unable to find address for the surname".
 
-Total time taken to complete this task is 4 hours (commits may show that this task was done for many hours and that is because of the frequent breaks taken while doing the task).
+Total time taken to complete this task is 4 hours (commits may show that this task was done for many hours and that is because of the frequent breaks taken while doing the task and also tidying up the code before submitting it for assignment review).
