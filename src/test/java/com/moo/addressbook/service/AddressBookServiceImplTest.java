@@ -35,7 +35,7 @@ public class AddressBookServiceImplTest {
 
     @Test
     public void shouldReturnCustomerListByFindingLastName(){
-        List<Customer> customerList = addressBookService.findByLastName("Nicolan");
+        List<Customer> customerList = addressBookService.findByLastName("Low");
 
         assertThat(customerList.size(), is(1));
     }
