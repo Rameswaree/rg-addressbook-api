@@ -1,7 +1,8 @@
 A REST API Address Book using Java and Spring Boot
 
 
-Note: This application can fetch all the customer lists as well as lists based on the last names.
+Note: This application will fetch the customer list based on their last name (not case-sensitive) and if no name is given, the application will fetch all the customers from the list. The customer list has been hard-coded within the program. The list of customers are given in an excel sheet uploaded in the repository.
+
 
 Steps to run the application:
 1. Clone the git repository or download the extract zip file.
