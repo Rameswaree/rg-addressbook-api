@@ -25,7 +25,7 @@ public class AddressBookServiceImpl implements AddressBookService {
 
     /**
      *
-     * @param lastName
+     * @param lastName Last name of the customer
      * @return list of customers having the value passed for lastName variable
      */
     @Override
