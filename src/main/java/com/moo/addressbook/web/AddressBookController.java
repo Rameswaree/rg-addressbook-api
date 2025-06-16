@@ -1,11 +1,11 @@
 package com.moo.addressbook.web;
 
-import com.moo.addressbook.custom.CustomerNotFoundException;
 import com.moo.addressbook.model.Customer;
 import com.moo.addressbook.service.AddressBookService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -15,35 +15,25 @@ import java.util.List;
  * @author rameswaree@gmail.com
  * Copyright 2020-2021
  */
+@AllArgsConstructor
 @RestController
+@RequestMapping("/address")
 public class AddressBookController {
 
-    @Autowired
-    AddressBookService addressBookService;
+    private final AddressBookService addressBookService;
 
     /**
      *
      * @param lastName find customers by last name
-     * @return list of customers having the last name passed as parameter
-     * @throws CustomerNotFoundException when the last name is not available in the list
+     * @return list of customers having the last name passed as parameter(if provided),
+     * otherwise returns all customers
      */
-    @GetMapping("/address/{lastName}")
-    public List<Customer> getCustomersByLastName(@PathVariable String lastName) throws CustomerNotFoundException {
+    @GetMapping
+    public List<Customer> getCustomers(@RequestParam(required = false) String lastName) {
 
-        List<Customer> customerList = addressBookService.findByLastName(lastName);
-
-        if(customerList.size()==0)
-            throw new CustomerNotFoundException("Unable to find address for the surname "+ lastName);
-
-        return customerList;
-    }
-
-    /**
-     *
-     * @return list of all customers
-     */
-    @GetMapping("/address")
-    public List<Customer> getAllCustomers(){
+        if(lastName != null && !lastName.isEmpty()) {
+            return addressBookService.findByLastName(lastName);
+        }
 
         return addressBookService.findAll();
     }

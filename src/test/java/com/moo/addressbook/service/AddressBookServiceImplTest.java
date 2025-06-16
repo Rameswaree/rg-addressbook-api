@@ -2,25 +2,23 @@ package com.moo.addressbook.service;
 
 import com.moo.addressbook.adaptor.CustomerAdaptor;
 import com.moo.addressbook.adaptor.CustomerAdaptorImpl;
+import com.moo.addressbook.custom.CustomerNotFoundException;
 import com.moo.addressbook.model.Customer;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(SpringJUnit4ClassRunner.class)
 public class AddressBookServiceImplTest {
 
     AddressBookService addressBookService;
 
     CustomerAdaptor customerAdaptor;
 
-    @Before
+    @BeforeEach
     public void init(){
         customerAdaptor = new CustomerAdaptorImpl();
         addressBookService = new AddressBookServiceImpl(customerAdaptor);
@@ -30,20 +28,20 @@ public class AddressBookServiceImplTest {
     public void shouldReturnCustomerList(){
         List<Customer> customerList = addressBookService.findAll();
 
-        assertThat(customerList.size(), is(10));
+        assertEquals(10, customerList.size());
     }
 
     @Test
     public void shouldReturnCustomerListByFindingLastName(){
         List<Customer> customerList = addressBookService.findByLastName("Low");
 
-        assertThat(customerList.size(), is(1));
+        assertEquals(1, customerList.size());
     }
 
     @Test
-    public void shouldReturnListSizeZeroWhileFindingLastName(){
-        List<Customer> customerList = addressBookService.findByLastName("Ganesh");
+    public void shouldThrowExceptionWhileFindingLastName(){
+        CustomerNotFoundException customerNotFoundException = assertThrows(CustomerNotFoundException.class, () -> addressBookService.findByLastName("Ganesh"));
 
-        assertThat(customerList.size(), is(0));
+        assertEquals("Unable to find address for the surname Ganesh", customerNotFoundException.getMessage());
     }
 }

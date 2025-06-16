@@ -1,8 +1,9 @@
 package com.moo.addressbook.service;
 
 import com.moo.addressbook.adaptor.CustomerAdaptor;
+import com.moo.addressbook.custom.CustomerNotFoundException;
 import com.moo.addressbook.model.Customer;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,14 +15,10 @@ import java.util.stream.Collectors;
  * Copyright 2020-2021
  */
 @Service
+@AllArgsConstructor
 public class AddressBookServiceImpl implements AddressBookService {
 
-    @Autowired
-    CustomerAdaptor customerAdaptor;
-
-    public AddressBookServiceImpl(CustomerAdaptor customerAdaptor) {
-        this.customerAdaptor = customerAdaptor;
-    }
+    private final CustomerAdaptor customerAdaptor;
 
     /**
      *
@@ -31,8 +28,17 @@ public class AddressBookServiceImpl implements AddressBookService {
     @Override
     public List<Customer> findByLastName(String lastName) {
 
-        List<Customer> customerStream = customerAdaptor.createCustomerAddressList();
-        return customerStream.stream().filter(c->c.getLastName().equalsIgnoreCase(lastName)).collect(Collectors.toList());
+        List<Customer> allCustomers = findAll();
+
+        List<Customer> customers = allCustomers.stream()
+                .filter(customer -> customer.getLastName().equalsIgnoreCase(lastName))
+                .collect(Collectors.toList());
+
+        if(customers.isEmpty()) {
+            throw new CustomerNotFoundException("Unable to find address for the surname " + lastName);
+        }
+
+        return customers;
     }
 
     /**

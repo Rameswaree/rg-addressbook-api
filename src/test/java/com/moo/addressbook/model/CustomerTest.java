@@ -1,15 +1,14 @@
 package com.moo.addressbook.model;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CustomerTest {
 
     Customer customer;
 
-    @Before
+    @BeforeEach
     public void init(){
         customer = new Customer();
     }
@@ -19,7 +18,7 @@ public class CustomerTest {
         customer.setPostCode("BD1 5AE");
         String postCode = customer.getPostCode();
 
-        assertEquals(postCode, "BD1 5AE");
+        assertEquals("BD1 5AE", postCode);
     }
 
     @Test
@@ -27,7 +26,7 @@ public class CustomerTest {
         customer.setCustomerId(1);
         long id = customer.getCustomerId();
 
-        assertEquals(id, 1);
+        assertEquals(1, id);
     }
 
     @Test
@@ -35,7 +34,7 @@ public class CustomerTest {
         customer.setFirstName("Reemu");
         String firstName = customer.getFirstName();
 
-        assertEquals(firstName, "Reemu");
+        assertEquals("Reemu", firstName);
     }
 
     @Test
@@ -43,7 +42,7 @@ public class CustomerTest {
         customer.setLastName("Ganesh");
         String lastName = customer.getLastName();
 
-        assertEquals(lastName, "Ganesh");
+        assertEquals("Ganesh", lastName);
     }
 
     @Test
@@ -51,7 +50,7 @@ public class CustomerTest {
         customer.setHouseNumber("6");
         String houseNumber = customer.getHouseNumber();
 
-        assertEquals(houseNumber, "6");
+        assertEquals("6", houseNumber);
     }
 
     @Test
@@ -59,7 +58,7 @@ public class CustomerTest {
         customer.setCity("Bradford");
         String city = customer.getCity();
 
-        assertEquals(city, "Bradford");
+        assertEquals("Bradford", city);
     }
 
     @Test
@@ -67,6 +66,6 @@ public class CustomerTest {
         customer.setCountry("United Kingdom");
         String country = customer.getCountry();
 
-        assertEquals(country, "United Kingdom");
+        assertEquals("United Kingdom", country);
     }
 }
