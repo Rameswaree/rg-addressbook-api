@@ -2,7 +2,7 @@ package com.moo.addressbook.service;
 
 import com.moo.addressbook.adaptor.CustomerAdaptor;
 import com.moo.addressbook.adaptor.CustomerAdaptorImpl;
-import com.moo.addressbook.custom.CustomerNotFoundException;
+import com.moo.addressbook.exception.CustomerNotFoundException;
 import com.moo.addressbook.model.Customer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,7 +1,7 @@
 package com.moo.addressbook.service;
 
 import com.moo.addressbook.adaptor.CustomerAdaptor;
-import com.moo.addressbook.custom.CustomerNotFoundException;
+import com.moo.addressbook.exception.CustomerNotFoundException;
 import com.moo.addressbook.model.Customer;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

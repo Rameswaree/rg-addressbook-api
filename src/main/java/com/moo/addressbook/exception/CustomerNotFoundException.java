@@ -1,4 +1,4 @@
-package com.moo.addressbook.custom;
+package com.moo.addressbook.exception;
 
 /**
  * Class to define customised exception
