@@ -1,4 +1,4 @@
-package com.moo.addressbook.web;
+package com.moo.addressbook.controller;
 
 import com.moo.addressbook.model.Customer;
 import com.moo.addressbook.service.AddressBookService;

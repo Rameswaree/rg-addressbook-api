@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.moo.addressbook</groupId>
 	<artifactId>rg-addressbook-api</artifactId>
-	<version>1.7.0</version>
+	<version>1.8.0</version>
 	<name>rg-addressbook-api</name>
 	<description>Address Book API</description>
 
