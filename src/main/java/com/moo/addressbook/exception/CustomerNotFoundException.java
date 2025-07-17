@@ -1,9 +1,7 @@
 package com.moo.addressbook.exception;
 
 /**
- * Class to define customised exception
- * @author rameswaree@gmail.com
- * Copyright 2020-2021
+ * Class to define customised exception for when a customer is not found.
  */
 public class CustomerNotFoundException extends RuntimeException {
 

@@ -5,7 +5,6 @@ import lombok.*;
 
 /**
  * Model class of Customer
- * @author rameswaree@gmail.com
  */
 @Builder
 @Getter

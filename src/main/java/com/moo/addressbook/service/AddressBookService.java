@@ -4,8 +4,8 @@ import com.moo.addressbook.model.Customer;
 
 import java.util.List;
 
-public interface AddressBookService{
-     List<Customer> findByLastName(String lastName);
+public interface AddressBookService {
+    List<Customer> findByLastName(String lastName);
 
-     List<Customer> findAll();
+    List<Customer> findAll();
 }

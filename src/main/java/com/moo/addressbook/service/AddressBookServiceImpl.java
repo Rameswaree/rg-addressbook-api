@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 /**
  * Service class to find the list of customers
+ *
  * @author rameswaree@gmail.com
  * Copyright 2020-2021
  */
@@ -21,7 +22,6 @@ public class AddressBookServiceImpl implements AddressBookService {
     private final CustomerAdaptor customerAdaptor;
 
     /**
-     *
      * @param lastName Last name of the customer
      * @return list of customers having the value passed for lastName variable
      */
@@ -34,7 +34,7 @@ public class AddressBookServiceImpl implements AddressBookService {
                 .filter(customer -> customer.getLastName().equalsIgnoreCase(lastName))
                 .collect(Collectors.toList());
 
-        if(customers.isEmpty()) {
+        if (customers.isEmpty()) {
             throw new CustomerNotFoundException("Unable to find address for the surname " + lastName);
         }
 
@@ -42,7 +42,6 @@ public class AddressBookServiceImpl implements AddressBookService {
     }
 
     /**
-     *
      * @return list of all the customers present
      */
     @Override

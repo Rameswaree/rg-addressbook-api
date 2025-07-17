@@ -12,8 +12,6 @@ import java.util.List;
 
 /**
  * Controller class
- * @author rameswaree@gmail.com
- * Copyright 2020-2021
  */
 @AllArgsConstructor
 @RestController
@@ -23,7 +21,6 @@ public class AddressBookController {
     private final AddressBookService addressBookService;
 
     /**
-     *
      * @param lastName find customers by last name
      * @return list of customers having the last name passed as parameter(if provided),
      * otherwise returns all customers
@@ -31,7 +28,7 @@ public class AddressBookController {
     @GetMapping
     public List<Customer> getCustomers(@RequestParam(required = false) String lastName) {
 
-        if(lastName != null && !lastName.isEmpty()) {
+        if (lastName != null && !lastName.isEmpty()) {
             return addressBookService.findByLastName(lastName);
         }
 
